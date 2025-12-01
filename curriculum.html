@@ -1,0 +1,214 @@
+<!-- Guarda esto como index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Currículum — Sorge</title>
+
+  <!-- CSS INCRUSTADO: copia todo esto en el head para que VSCode lo aplique -->
+  <style>
+    :root{
+      --primary: #5f4bfd;
+      --accent: #00bfa6;
+      --bg: linear-gradient(135deg,#eef2f3,#dfe9f3);
+      --card: #ffffff;
+      --text: #222;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family: 'Poppins', 'Segoe UI', Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      padding:24px;
+    }
+
+    /* contenedor central */
+    .cv-wrap{
+      max-width:980px;
+      margin:0 auto;
+      background:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(250,250,255,0.98));
+      border-radius:20px;
+      overflow:hidden;
+      box-shadow:0 20px 40px rgba(25,30,50,0.12);
+    }
+
+    /* HERO */
+    .hero{
+      position:relative;
+      padding:48px 32px;
+      display:flex;
+      gap:24px;
+      align-items:center;
+      background-image:linear-gradient(120deg, rgba(95,75,253,0.95), rgba(111,139,255,0.95));
+      color:white;
+    }
+    .hero .avatar{
+      width:140px;height:140px;border-radius:50%;
+      border:5px solid rgba(255,255,255,0.12);
+      object-fit:cover;
+      box-shadow:0 8px 30px rgba(0,0,0,0.25);
+      flex-shrink:0;
+    }
+    .hero .meta{
+      display:flex;flex-direction:column;gap:6px;
+    }
+    .hero h1{font-size:2.1rem;letter-spacing:0.4px;margin-bottom:4px}
+    .role{opacity:0.92;font-weight:600}
+    .hero nav{margin-top:10px}
+    .hero nav ul{display:flex;gap:14px;list-style:none;padding:0}
+    .hero nav a{
+      color:rgba(255,255,255,0.95);text-decoration:none;font-weight:600;
+      padding:8px 12px;border-radius:10px;transition:all .18s;
+    }
+    .hero nav a:hover{background:rgba(255,255,255,0.08);transform:translateY(-2px)}
+
+    /* MAIN LAYOUT */
+    main{display:grid;grid-template-columns: 2fr 1fr;gap:28px;padding:28px}
+    @media (max-width:900px){ main{grid-template-columns:1fr;padding:20px} .hero{flex-direction:column;align-items:center;text-align:center} }
+
+    /* TARJETAS */
+    .card{
+      background:var(--card);
+      padding:20px;border-radius:14px;
+      box-shadow:0 8px 22px rgba(20,25,40,0.06);
+      transition:transform .25s, box-shadow .25s;
+    }
+    .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(20,25,40,0.09)}
+    h2{color:var(--primary);margin-bottom:12px;font-size:1.25rem}
+
+    /* PERFIL + FOTO */
+    .profile{display:flex;flex-direction:column;gap:12px}
+    .profile p{font-size:1rem;line-height:1.6;color:#333}
+
+    /* TIMELINE */
+    .timeline{position:relative;padding-left:16px;border-left:3px solid rgba(95,75,253,0.14)}
+    .timeline-item{margin-bottom:20px;padding-left:18px}
+    .timeline-item h3{margin-bottom:6px;font-size:1.05rem}
+    .timeline-item span{display:block;color:#666;font-size:0.95rem;margin-bottom:8px}
+    .timeline-item ul{list-style:disc;margin-left:18px;color:#444}
+
+    /* LADO DERECHO (datos, skills, contacto) */
+    .side { display:flex; flex-direction:column; gap:20px }
+    .skill{
+      display:flex;flex-direction:column;gap:8px
+    }
+    .skill .bar{
+      height:10px;border-radius:10px;background:#eef2ff;overflow:hidden;
+      box-shadow:inset 0 -2px 6px rgba(0,0,0,0.04)
+    }
+    .skill .bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--primary),var(--accent));border-radius:10px;width:70%}
+
+    /* VIDEO */
+    .video-wrap video{width:100%;border-radius:12px;display:block}
+
+    /* FOOTER */
+    footer{background:#0f1724;color:#e6eef7;padding:18px;text-align:center;font-size:0.95rem}
+
+    /* Pequeñas utilidades */
+    .muted{color:#666;font-size:0.95rem}
+    a.external{color:var(--primary);text-decoration:none;font-weight:600}
+  </style>
+</head>
+<body>
+
+  <div class="cv-wrap">
+    <header class="hero">
+       <img src="/home/super/Baixades/sorge.webp" alt="Foto personal" class="profile-img" style="width:80px; height:80px; border-radius:50%;">
+      <div class="meta">
+        <h1>Izan Pérez Ortiz</h1>
+        <div class="role">Seidor</div>
+        <nav>
+          <ul>
+            <li><a href="#perfil">Perfil</a></li>
+            <li><a href="#experiencia">Experiencia</a></li>
+            <li><a href="#estudios">Estudios</a></li>
+            <li><a href="#video">Vídeo</a></li>
+            <li><a href="#contacto" class="external">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- COLUMNA PRINCIPAL -->
+      <section id="perfil" class="card">
+        <h2>Perfil Profesional</h2>
+        <div class="profile">
+          <p>
+            Hola buenas, me llamo Izan Perez Ortiz y he estado de practicas en una empresa conocida se llama Seidor que antiguamente era trinitech
+            se me da bien el compañerismo y a la hora de montar y desmontar soy muy productivo
+          </p>
+          <p class="muted">Vehículo: No disponible · Residencia: España</p>
+        </div>
+      </section>
+
+      <!-- COLUMNA LATERAL -->
+      <aside class="side">
+        <div class="card">
+          <h2>Contacto</h2>
+          <p class="muted">Correo</p>
+          <p><a href="mailto:IPerezortiz.eb@iesesteveterradas.cat" class="external">Iperezortiz.eb@estesteveterradas.cat</a></p>
+        </div>
+
+        <div class="card">
+          <h2>Habilidades</h2>
+          <div class="skill">
+            <div class="muted">Trabajo en equipo</div>
+            <div class="bar"><i style="width:70%"></i></div>
+          </div>
+          <div class="skill">
+            <div class="muted">Productividad</div>
+            <div class="bar"><i style="width:80%"></i></div>
+          </div>
+          <div class="skill">
+            <div class="muted">Ofimática / Montaje</div>
+            <div class="bar"><i style="width:90%"></i></div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- SEGUNDA FILA: EXPERIENCIA (ocupando columna principal) -->
+      <section id="experiencia" class="card" style="grid-column:1 / -1">
+        <h2>Experiencia Laboral</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <h3>Empleado de Seidor</h3>
+            <span>2025 — Actualidad</span>
+            <ul>
+              <li>Gestión documental y Montaje.</li>
+              <li>Comunicación con los compañeros.</li>
+              <li>Manejo de herramientas de ofimatica.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ESTUDIOS -->
+      <section id="estudios" class="card" style="grid-column:1 / -1">
+        <h2>Estudios</h2>
+        <ul>
+          <li>Grado de Sistemas micro informaticos y redes</li>
+        </ul>
+      </section>
+
+      <!-- VIDEO -->
+      <section id="video" class="card video-wrap" style="grid-column:1 / -1">
+        <h2>Presentación en vídeo</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/6YSgvEZ3fbo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </section>
+    </main>
+
+    <footer id="contacto">
+      © <span id="year"></span> Izan Pérez Ortiz, Currículum 
+    </footer>
+  </div>
+
+  <script>
+    // pequeño script para poner el año actual
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
